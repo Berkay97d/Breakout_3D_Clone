@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,14 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float Range;
-
-
+    private Vector3 startPosition;
+    
     private void Update()
     {
         MovePlayer();
+        
     }
-
+    
     
     private void MovePlayer()
     {

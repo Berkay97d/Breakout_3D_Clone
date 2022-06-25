@@ -31,7 +31,7 @@ public class InitilazeField : MonoBehaviour
             {
                 var xPos = -Range + (i * gap + i *0.75f);
                 breakObject.GetComponent<Renderer>().material = colors[j];
-                Instantiate(breakObject, new Vector3(xPos,Floor + j * 0.5f), Quaternion.identity,parent.transform);
+                Instantiate(breakObject, new Vector3(xPos,Floor + j * 0.65f), Quaternion.identity,parent.transform);
             }
         }
     }

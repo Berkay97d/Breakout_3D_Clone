@@ -10,14 +10,10 @@ public class BallController : MonoBehaviour
     [SerializeField] private Rigidbody ballRb;
     [SerializeField] private bool isBallThrowed;
     [SerializeField] private GameObject player;
+    private float startYPosition = -2.884f;
+    public bool isBallDead;
     
     
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         FollowPlayer();
@@ -42,7 +38,15 @@ public class BallController : MonoBehaviour
             var x = (range - ballRb.velocity.x) ;
 
             ballRb.AddForce(x,0,0,ForceMode.Impulse);
-            
+        }
+        
+        if (ballRb.velocity.y < 0 )
+        {
+            ballRb.velocity = new Vector3(ballRb.velocity.x, -5);
+        }
+        else if (ballRb.velocity.y > 0 )
+        {
+            ballRb.velocity = new Vector3(ballRb.velocity.x, 5);
         }
     }
 
@@ -54,18 +58,34 @@ public class BallController : MonoBehaviour
         
         if (randomNum == 1)
         {
-            ballRb.AddForce(new Vector3(2,5,0),ForceMode.Impulse);
+            ballRb.AddForce(new Vector3(3,5,0),ForceMode.Impulse);
             yield break;
         }
         
-        ballRb.AddForce(new Vector3(-2,-5,0),ForceMode.Impulse);
+        ballRb.AddForce(new Vector3(-3,-5,0),ForceMode.Impulse);
     }
 
     private void FollowPlayer()
     {
         if (!isBallThrowed)
         {
-            transform.position = new Vector3(player.transform.position.x, transform.position.y);
+            transform.position = new Vector3(player.transform.position.x, startYPosition);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sensor"))
+        {
+            RelocateBall();
+            isBallDead = true;
+        }
+    }
+
+    private void RelocateBall()
+    {
+        transform.position = new Vector3(player.transform.position.x, startYPosition);
+        ballRb.velocity = Vector3.zero;
+        isBallThrowed = false;
     }
 }

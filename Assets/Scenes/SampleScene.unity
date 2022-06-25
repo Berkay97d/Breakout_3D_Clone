@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakObject: {fileID: 6101728930704402172, guid: aa52a1d99ea44754a988b37931a010da, type: 3}
   Range: 8.5
-  Floor: 1
+  Floor: 0
   blockNumber: 9
   parent: {fileID: 1119684110}
   colors:
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 141579108}
   - component: {fileID: 141579107}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,6 +481,7 @@ Transform:
   - {fileID: 141579110}
   - {fileID: 1702404693}
   - {fileID: 757088476}
+  - {fileID: 711812164}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -577,6 +578,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &711812162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711812164}
+  - component: {fileID: 711812163}
+  m_Layer: 0
+  m_Name: Sensor
+  m_TagString: Sensor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &711812163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711812162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.427588, y: 0.05, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &711812164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711812162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 290835213}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757088472
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +635,7 @@ GameObject:
   - component: {fileID: 757088474}
   - component: {fileID: 757088473}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Wall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,8 +711,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757088472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.37, y: 3.99, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalPosition: {x: 8.89, y: 3.99, z: 0}
+  m_LocalScale: {x: 0.1, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 290835213}
   m_RootOrder: 2
@@ -1012,6 +1057,7 @@ MonoBehaviour:
   ballRb: {fileID: 1536770171}
   isBallThrowed: 0
   player: {fileID: 161402800}
+  isBallDead: 0
 --- !u!1 &1702404689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1071,7 @@ GameObject:
   - component: {fileID: 1702404691}
   - component: {fileID: 1702404690}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
