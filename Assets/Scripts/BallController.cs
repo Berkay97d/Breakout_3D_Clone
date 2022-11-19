@@ -17,11 +17,12 @@ public class BallController : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        BallThrower();
     }
 
-    private void OnMouseDown()
+    private void BallThrower()
     {
-        if (!isBallThrowed)
+        if ( Input.GetKeyDown(KeyCode.Space) &&!isBallThrowed )
         {
             StartCoroutine(ThrowBall());
             isBallThrowed = true;
